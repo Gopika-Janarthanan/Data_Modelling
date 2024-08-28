@@ -1,0 +1,158 @@
+Let's go through different types of methods to find even or odd numbers als by explaining the code line by line with an example input (`n = 15`), step by step:
+
+Method 1: Brute Force (Using Modulus Operator)
+
+def brute_force(n):
+    # If the remainder when n is divided by 2 is 0, n is even.
+    if n % 2 == 0:
+        return "even"
+    else:
+        return "odd"
+
+Explanation:
+Line 1: Define a function `brute_force` that takes an integer `n` as input.
+Line 3: Check if `n` is divisible by 2 using the modulus operator `%`. If `n % 2 == 0`, `n` is even.
+Line 4: If the condition is true, return "even".
+Line 5: Otherwise, return "odd".
+
+Example with `n = 15`:
+`15 % 2` results in `1`, so the function returns "odd".
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 2: Better (Using Bitwise AND Operator)
+
+def better_bitwise(n):
+    # The binary representation of even numbers has the last bit as 0.
+    if n & 1 == 0:
+        return "even"
+    else:
+        return "odd"
+
+Explanation:
+Line 1:Define a function `better_bitwise` that takes an integer `n` as input.
+Line 3:Use the bitwise AND operator `&` to check if the last bit of `n` is `0` (indicating an even number). `n & 1` checks if the last bit is `1` or `0`.
+Line 4:If `n & 1 == 0`, return "even".
+Line 5: Otherwise, return "odd".
+
+Example with `n = 15`
+`15 & 1` results in `1`, so the function returns "odd".
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 3: Optimal (Using Division and Floor Operation)
+
+def optimal_division(n):
+    # Divide n by 2, multiply the result by 2, and compare with n.
+    if n // 2 * 2 == n:
+        return "even"
+    else:
+        return "odd"
+
+Explanation:
+Line 1:Define a function `optimal_division` that takes an integer `n` as input.
+Line 3:Perform integer division (`//`) by 2, then multiply the result by 2. If the result equals `n`, then `n` is even.
+Line 4:If true, return "even".
+Line 5:Otherwise, return "odd".
+
+Example with `n = 15`
+`15 // 2` results in `7`. `7 * 2` equals `14`, which is not equal to `15`, so the function returns "odd".
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 4: Using String Representation
+
+def string_method(n):
+    # Convert n to a string and check the last character.
+    if str(n)[-1] in '02468':
+        return "even"
+    else:
+        return "odd"
+
+Explanation:
+Line 1:Define a function `string_method` that takes an integer `n` as input.
+Line 3:Convert `n` to a string and check if the last character (using `[-1]` index) is in the string `'02468'` (which contains the digits that indicate even numbers).
+Line 4:If the last character is in `'02468'`, return "even".
+Line 5:Otherwise, return "odd".
+
+Example with `n = 15`
+The string representation of `15` is `"15"`. The last character is `"5"`, which is not in `'02468'`, so the function returns "odd".
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 5: Using List of Even and Odd Numbers
+
+def list_check(n):
+    # Create a list of even digits and check if the last digit of n is in the list.
+    evens = [0, 2, 4, 6, 8]
+    if int(str(n)[-1]) in evens:
+        return "even"
+    else:
+        return "odd"
+
+Explanation:
+Line 1: Define a function `list_check` that takes an integer `n` as input.
+Line 3:Create a list `evens` containing the digits `0, 2, 4, 6, 8`.
+Line 4:Convert `n` to a string, take the last character, convert it back to an integer, and check if it is in the `evens` list.
+Line 5:If it is in the list, return "even".
+Line 6:Otherwise, return "odd".
+
+Example with `n = 15
+The last digit of `15` is `5`, which is not in `[0, 2, 4, 6, 8]`, so the function returns "odd".
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 6: Using Ternary Operator
+
+def ternary_operator(n):
+    # Use Python's ternary operator to check even or odd.
+    return "even" if n % 2 == 0 else "odd"
+
+Explanation:
+Line 1:Define a function `ternary_operator` that takes an integer `n` as input.
+Line 3:Use the ternary operator to return "even" if `n % 2 == 0`, otherwise return "odd".
+
+Example with `n = 15`:
+ `15 % 2` results in `1`, so the function returns "odd".
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 7: Using Recursion
+
+def recursive_check(n):
+    # Base cases: if n is 0, it's even; if n is 1, it's odd.
+    if n == 0:
+        return "even"
+    elif n == 1:
+        return "odd"
+    else:
+        # Recursive case: Reduce the problem by 2 and check again.
+        return recursive_check(n - 2)
+
+Explanation:
+Line 1:Define a function `recursive_check` that takes an integer `n` as input.
+Line 3:If `n` is `0`, return "even" (base case).
+Line 4:If `n` is `1`, return "odd" (base case).
+Line 5:Otherwise, call `recursive_check(n - 2)` to check the evenness or oddness of `n-2`.
+
+Example with `n = 15`:
+`recursive_check(15)` calls `recursive_check(13)`, `recursive_check(11)`, ..., until `recursive_check(1)` is reached, which returns "odd".
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Method 8: Using Dictionary Mapping
+
+def dictionary_method(n):
+    # Create a dictionary to map 0 to "even" and 1 to "odd".
+    return {0: "even", 1: "odd"}[n % 2]
+
+Explanation:
+Line 1:Define a function `dictionary_method` that takes an integer `n` as input.
+Line 3:Use a dictionary to map the result of `n % 2` to "even" (for 0) or "odd" (for 1).
+Line 3:Return the corresponding value from the dictionary.
+
+Example with `n = 15`:**
+`15 % 2` results in `1`, so the function returns the value mapped to `1` in the dictionary, which is "odd".
+even" if the remainder is `0`, otherwise return "odd".
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
