@@ -1,0 +1,50 @@
+Let's go through different methods to determine the last digit of a number in Python, with line-by-line explanations and step-by-step examples.
+
+Method 1: Brute Force (Using Modulus Operator)**
+
+def brute_force_last_digit(n):
+    # The last digit of a number can be found by taking n % 10.
+    return n % 10
+
+Explanation:
+- Line 1: Define a function `brute_force_last_digit` that takes an integer `n` as input.
+- Line 3: Use the modulus operator `%` with `10` to get the last digit of `n`.
+`n % 10` gives the remainder when `n` is divided by `10`, which is the last digit. Return the last digit.
+
+Example with `n = 135`:
+- `135 % 10` results in `5`, so the function returns `5`.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 2: Using String Conversion
+
+def string_conversion_last_digit(n):
+    # Convert the number to a string and get the last character.
+    return int(str(n)[-1])
+
+Explanation:
+- Line 1: Define a function `string_conversion_last_digit` that takes an integer `n` as input.
+- Line 3: Convert `n` to a string using `str(n)`.
+- Line 3: Use the `[-1]` index to get the last character of the string, which represents the last digit.
+- Line 3: Convert the last character back to an integer using `int()` and return it.
+
+Example with `n = 135`:
+- The string representation of `135` is `"135"`. The last character is `"5"`, which is converted to the integer `5`, so the function returns `5`.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Method 3: Using Division and Floor Operation
+
+def division_floor_last_digit(n):
+    # Find the last digit by subtracting (n // 10) * 10 from n.
+    return n - (n // 10) * 10
+
+Explanation:
+- Line 1: Define a function `division_floor_last_digit` that takes an integer `n` as input.
+- Line 3: Perform integer division (`//`) by 10 to remove the last digit, then multiply by 10 and subtract from `n` to isolate the last digit.
+- Line 3: Return the last digit.
+
+Example with `n = 135`:
+- `135 // 10` results in `13`. `13 * 10` equals `130`. Subtracting `130` from `135` gives `5`, so the function returns `5`.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
